@@ -1,0 +1,42 @@
+<div class='container' style='margin-top: 60px;'>
+
+  <div class="row" style="width:50%;margin:auto">
+    <form class="form-inline md-form mr-auto mb-4">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button type="button" class="btn btn-outline-primary">Search</button>
+    </form>
+  </div>
+  <!-- <div class="md-form">
+  <input type="search" [(ngModel)]="searchText" placeholder="Search text">
+</div>
+<ul *ngFor="let data of dataset | filter: searchText">
+  <li>{{data}}</li>
+</ul> -->
+
+  <div class="row">
+    <div class="card mb-4 shadow-sm " *ngFor="let product of data"
+      style='width:300px;display:inline-block;margin-left:70px'>
+      <img [routerLink]="['/product-details', product.id]" class="card-img-top"
+        data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+        alt="Thumbnail [80%x200]" src="{{product.image}}" data-holder-rendered="true"
+        style="height: 200px; width: 80%; display: block;margin-left: 30px;">
+      <div class="card-body">
+        <div class="card-text">
+          {{product.title}}
+          <span style="color:blue">-{{product.category}}</span>
+          <p style="color:rgb(240, 17, 17)"><b style="color:black">Price:</b> {{product.price}} EGP</p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button class='btn btn-primary' (click)="addToCart(product.id)" id='add{{product.id}}'> add to card</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary btnHidden" (click)="addToCart(product.id)"
+              id="btnShowP{{product.id}}">+</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary btnHidden " id="btnShowM{{product.id}}"
+              (click)="decreaseQuantityInCart(product.id)">-</button>
+          </div>
+          <small class="text-muted">9 mins</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

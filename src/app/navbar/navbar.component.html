@@ -1,0 +1,47 @@
+
+
+
+  
+  <nav class=" navbar-expand-md navbar navbar-dark bg-dark mynav">
+    <a class="navbar-brand" routerLink="" sytle='font-weight:bold'>  S<img src="assets/logo.webp" width="50" height="50" class="rounded-circle">UQ</a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarContent" [attr.aria-expanded]="!collapsed" aria-label="Toggle navigation" (click)="collapsed = !collapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+   
+  
+    <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item " ngbDropdown style="margin-right: 50px;text-align: center;">
+          <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
+           <img src="assets/image2.jfif" width="40" height="40" class="rounded-circle"  >
+          </a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu ">
+            <div *ngFor="let product of cartLocal;let i=index" ngbDropdownItem >
+              <div style="display:inline-block">
+              <img src="{{product.image}}" width="50px;" class="rounded-circle">
+            </div>
+            <div style="display:inline-block">
+            <span>{{product.category}}</span><br>
+            <span style="color:rgb(3, 3, 70);font-weight:bold;">Quantity: </span>{{product.quantity}}
+          </div>
+          </div>
+            <a ngbDropdownItem  routerLink="myCart" style="text-align: center;">view cart</a>
+          </div>
+        </li>
+        
+      
+  
+        <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right" style="margin-right: 10px;">
+          <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button">
+            <img src="assets/user3.png" width="40" height="40" class="rounded-circle">
+          </a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+            <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Edit Profile</a>
+            <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Log Out</a>
+            <!-- <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a> -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  

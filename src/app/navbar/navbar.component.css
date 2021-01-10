@@ -1,0 +1,8 @@
+.navbar-brand{
+  font-size: 50px;
+  font-weight: bold;
+}
+.mynav{
+  position: sticky; top: 0;
+  z-index: 999;
+}
